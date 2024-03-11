@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/57a5ab8d5e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logo">autoVISION</div>
+    <div class="container">
+        <p id="sign">Login</p>
+        <input type="text" class="username-field" placeholder="Username">
+        <input type="password" class="password-field" placeholder="Password" id="password">
+        <i class="fa-regular fa-eye-slash" style="color: #457B9D;" id="eye-icon"></i>
+        <button class="login-btn">Login</button>
+        <button class="forgot-password">forgot password?</button>
+    </div>
+    <div class="pattern"></div>
+        <!-- <img src="webpage image2.jpg" height="100%" align="right" class="image"> -->
+    <script>
+        
+        let eye_icon = document.getElementById("eye-icon")
+        let password = document.getElementById("password")
+
+        eye_icon.onclick = function(){
+            
+            if(password.type == "password"){
+                password.type ="text";
+            }
+            else{
+                password.type = "password";
+            }
+        }
+    </script>
+    </body>    
+</html>

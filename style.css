@@ -1,0 +1,124 @@
+/* RED-#E63946
+WHITE-#F1FAEE
+LIGHT BLUE-#A8DADC
+BLUE-#457B9D */
+.logo{
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  align-items: center;
+  font-size: 25px;
+  color: #00bcd4; background-image: -webkit-linear-gradient(0deg, #00bcd4 29%, #673ab7 46%, #ff483b 82%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+body{
+  font-family: 'Comfortaa', cursive;
+  font-family: 'Poppins', sans-serif; 
+  background-color:#F1FAEE;
+  background-image: url('webpage\ image2.jpg');
+  background-repeat: no-repeat; 
+  background-size: 855px;
+  background-size: cover;
+  background-position-x: 655px; 
+}
+
+#sign{
+  color: #E63946;
+  position: absolute;
+  left: 40px;
+  top:50px;
+  font-size: 80px;
+  pointer-events: none;
+}
+
+.username-field{
+  position: absolute;
+  left: 50px;
+  top: 300px;
+}
+
+.password-field{
+  position: absolute;
+  left: 50px;
+  top: 350px;
+}
+
+.username-field,.password-field{
+  color:#457B9D;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid ;
+  background: transparent;
+  font-size: 1.3rem;
+  width: 400px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.username-field:focus,.password-field:focus{ 
+  border-bottom-color: #E63946;
+}
+
+
+
+input::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: #457B9D;
+}
+
+.login-btn{
+  position: absolute;
+  top: 400px;
+  left: 355px;
+  font-size: 25px;
+  color: #F1FAEE;
+  border: none;
+  border-radius: 0.4rem;
+  background-color:#E63946;
+  padding: 0 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  height: 48px;
+  cursor: pointer;
+  width: 100px;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.login-btn:hover{
+  background-color: #ce3340
+}
+
+#eye-icon{
+  position: absolute;
+  left: 430px;
+  top: 355px;
+  cursor: pointer;
+}
+
+.forgot-password{
+  position: absolute;
+  top: 400px;
+  left: 50px; 
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #E63946;
+  padding: 2.3px;
+  cursor: pointer;
+  font-size: 15px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;}
+.forgot-password:hover{
+  background-color: none;
+  color: #457B9D;
+}
+
+  /* background-size: 855px;
+  background-size: cover;
+  background-position-x: 655px; */
