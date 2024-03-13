@@ -1,0 +1,75 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'kanit';
+}
+
+body{
+    background-image: url('carz.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    color: #caccce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 500px;
+}
+
+.sign{
+    pointer-events: none;
+    align-items: center;
+    font-size: 25px;
+    color: #00bcd4; background-image: -webkit-linear-gradient(45deg, #00bcd4 0%, #673ab7 25%, #ff483b 39%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+
+.container{
+    background-color:#1e1f20;
+    border-radius: 10px;
+    position: relative;
+    padding: 90px;
+    width: 500px;
+
+}
+
+.username ,.password{
+    border: 0;
+    font-size: 17px;
+    outline: 0;
+    background:transparent;
+    border-bottom: 2px solid;
+    color: #caccce;
+    padding: 10px;
+    width: 300px;
+}
+.text{
+    font-size: 15px;
+    padding: 5px;
+}
+
+.login-btn{
+    background-color:  #131314;
+    font-size: 20px;
+    color: #caccce;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    float: right;
+}
+
+.forgot-password{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: red;
+    padding: 1px;
+}
