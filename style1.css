@@ -9,7 +9,10 @@
 }
 
 body{
-    background-color: #131314;
+    background-image: url('carz.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
     color: #caccce;
     display: flex;
     align-items: center;
