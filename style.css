@@ -1,0 +1,32 @@
+html, body{
+    font-weight: 500 !important;
+    font-family: 'Kanit', sans-serif !important;
+}
+
+.primary-color{
+    color: #000000;
+}
+
+.btn-sz-primary{
+    width: 100%;
+    color: white !important;
+    background-color: #000000;
+}
+
+.btn-sz-primary:hover{
+    background-color: #000000;
+}
+
+.kanit-black {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.main-input{
+    width: 80%;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    border-bottom: 2px solid #000000 !important;
+}
