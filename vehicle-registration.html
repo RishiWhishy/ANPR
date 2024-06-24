@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header .date-time {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header .sign-out {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: calc(100% - 40px);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form select,
+        form button {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Vehicle Registration</h1>
+        <div class="date-time">
+            <span id="current-date"></span>
+            <span id="current-time"></span>
+        </div>
+        <a href="sign-in.html" class="sign-out">Sign Out</a>
+        <nav class="navbar">
+            <a href="/">Overview</a>
+            <a href="detailed-analysis.html">Registered Vehicles</a>
+            <a href="vehicle-registration.html">Vehicle Registration</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h3>Vehicle Registration</h3>
+            <form id="vehicle-registration-form">
+                <label for="owner-name">Owner Name</label>
+                <input type="text" id="owner-name" required>
+                <label for="vehicle-number-plate">Number Plate</label>
+                <input type="text" id="vehicle-number-plate" required>
+                <label for="vehicle-type">Vehicle Type</label>
+                <select id="vehicle-type" required>
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                    <option value="others">Others</option>
+                </select>
+                <label for="access-type">Access Type</label>
+                <select id="access-type" required>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="staff">Staff</option>
+                    <option value="visitors">Visitors</option>
+                </select>
+                <button type="submit">Register Vehicle</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const updateDateTime = () => {
+                const now = new Date();
+                document.getElementById("current-date").textContent = now.toLocaleDateString();
+                document.getElementById("current-time").textContent = now.toLocaleTimeString();
+            };
+
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+
+            document.getElementById("vehicle-registration-form").addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const ownerName = document.getElementById("owner-name").value;
+                const numberPlate = document.getElementById("vehicle-number-plate").value;
+                const vehicleType = document.getElementById("vehicle-type").value;
+                const accessType = document.getElementById("access-type").value;
+
+                fetch('/register_vehicle', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ownerName: ownerName,
+                            numberPlate: numberPlate,
+                            vehicleType: vehicleType,
+                            accessType: accessType,
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.msg);
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>

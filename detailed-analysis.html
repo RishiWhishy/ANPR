@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered vehicles - Automatic Number Plate Detection Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header .date-time {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header .sign-out {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: calc(100% - 40px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Registered vehicles</h1>
+        <div class="date-time">
+            <span id="current-date"></span>
+            <span id="current-time"></span>
+        </div>
+        <a href="sign-in.html" class="sign-out">Sign Out</a>
+        <nav class="navbar">
+            <a href="/">Overview</a>
+            <a href="detailed-analysis.html">Registered Vehicles</a>
+            <a href="vehicle-registration.html">Vehicle Registration</a>
+        </nav>
+    </header>
+    <main>
+        <section id="detailed-analysis" class="section">
+            <div class="registered-vehicles">
+                <h3>Registered Vehicles</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Number Plate</th>
+                            <th>Vehicle Type</th>
+                            <th>Access Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registered-vehicles-list">
+                        <!-- Rows will be populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const updateDateTime = () => {
+                const now = new Date();
+                document.getElementById("current-date").textContent = now.toLocaleDateString();
+                document.getElementById("current-time").textContent = now.toLocaleTimeString();
+            };
+
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+
+            const fetchRegisteredVehicles = () => {
+                fetch('/get_registered_vehicles')
+                    .then(response => response.json())
+                    .then(data => {
+                        const registeredVehiclesList = document.getElementById("registered-vehicles-list");
+                        registeredVehiclesList.innerHTML = "";
+                        data.forEach(vehicle => {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `<td>${vehicle.owner_name}</td><td>${vehicle.vehicle_number}</td><td>${vehicle.vehicle_model}</td><td>${vehicle.access_type}</td>`;
+                            registeredVehiclesList.appendChild(row);
+                        });
+                    });
+            };
+
+            fetchRegisteredVehicles();
+        });
+    </script>
+</body>
+
+</html>
